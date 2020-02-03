@@ -53,3 +53,36 @@ public:
     }
 };
 ```
+
+##  83. 删除排序链表中的重复元素
+
+题目链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list
+
+思路：
+1. 使用两个指针pre和cur, pre指针指向参照节点，cur指针指向当前节点。
+2. 如果pre->val = cur->val,则删除cur指向的内存，同时将pre->next指向当前节点的下一个节点, 然后将cur往后移动。
+3. 如果pre->val != cur->val, 将pre指向当前节点, cur往后移动
+
+``` c++
+
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if(head){
+            ListNode* cur = head->next, *pre = head;
+            while(cur){
+                if(cur->val == pre->val){
+                    pre->next = cur->next;
+                    delete cur;
+                    cur = pre->next;
+                }else{
+                    pre = cur;
+                    cur = cur->next;
+                }
+            }
+        }
+        return head;
+    }
+};
+
+```

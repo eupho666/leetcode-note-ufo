@@ -1,4 +1,5 @@
 * 数据结构
+  * [数组](data-struct/array/)
   * [链表](data-struct/linked-list/)
   * [栈](data-struct/stack/)
 * 算法
